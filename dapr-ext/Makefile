@@ -26,3 +26,12 @@ help: ## Show this help
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "$(INFO_COLOR)%-30s$(NO_COLOR) %s\n", $$1, $$2}'
 
 .PHONY: help
+
+debug: # Show Chrome-dev tools
+	docker extension dev debug $(IMAGE):$(TAG)
+debug-reset: # Reset Chrome-dev tools
+	docker extension dev reset $(IMAGE):$(TAG)
+debug-ui: # Set UI hot reload
+	docker extension dev ui-source $(IMAGE):$(TAG) http://localhost:3000
+ui-run:
+	cd ui && npm start
