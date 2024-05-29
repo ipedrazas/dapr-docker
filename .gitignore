@@ -20,3 +20,7 @@
 # Go workspace file
 go.work
 go.work.sum
+
+
+dapr-ext/ui/node_modules
+dapr-ext/ui/build
